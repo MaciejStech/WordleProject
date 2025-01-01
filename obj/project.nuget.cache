@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jd3sN5A7j7c=",
+  "dgSpecHash": "DWFkL/X41Kc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\35387\\Source\\Repos\\WordleProject\\WordleProject.csproj",
+  "projectFilePath": "C:\\Users\\35387\\source\\repos\\WordleProject\\WordleProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\35387\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\35387\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

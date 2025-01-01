@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\35387\\Source\\Repos\\WordleProject\\WordleProject.csproj": {}
+    "C:\\Users\\35387\\source\\repos\\WordleProject\\WordleProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\35387\\Source\\Repos\\WordleProject\\WordleProject.csproj": {
+    "C:\\Users\\35387\\source\\repos\\WordleProject\\WordleProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\35387\\Source\\Repos\\WordleProject\\WordleProject.csproj",
+        "projectUniqueName": "C:\\Users\\35387\\source\\repos\\WordleProject\\WordleProject.csproj",
         "projectName": "WordleProject",
-        "projectPath": "C:\\Users\\35387\\Source\\Repos\\WordleProject\\WordleProject.csproj",
+        "projectPath": "C:\\Users\\35387\\source\\repos\\WordleProject\\WordleProject.csproj",
         "packagesPath": "C:\\Users\\35387\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\35387\\Source\\Repos\\WordleProject\\obj\\",
+        "outputPath": "C:\\Users\\35387\\source\\repos\\WordleProject\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

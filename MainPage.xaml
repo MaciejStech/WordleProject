@@ -4,8 +4,30 @@
              x:Class="WordleProject.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout>
-        </VerticalStackLayout>
+        
+            <!-- <Button x:Name="Play" Text="Play" Clicked="Play_Clicked" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DarkSlateGrey" TextColor="White"/> -->
+            <Grid>
+                <!-- Define the layout structure -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Top-right buttons -->
+            <Button Text="Settings" Grid.Row="0" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="End" Margin="10"/>
+            <Button Text="Log in" Grid.Row="1" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start" Margin="10"/>
+
+            <!-- Center buttons -->
+            <Button Text="Play" Clicked="Play_Clicked" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Button Text="History" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Start"/>
+        </Grid>
+
+        
     </ScrollView>
 
 </ContentPage>
