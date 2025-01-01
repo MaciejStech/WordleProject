@@ -27,12 +27,12 @@
         <!-- Title -->
         <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-        <Entry x:Name="Row0Entry1" Grid.Row="1" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
-        <Entry x:Name="Row0Entry2" Grid.Row="1" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
-        <Entry x:Name="Row0Entry3" Grid.Row="1" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
-        <Entry x:Name="Row0Entry4" Grid.Row="1" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
-        <Entry x:Name="Row0Entry5" Grid.Row="1" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
-        <Entry x:Name="Row0Entry6" Grid.Row="1" Grid.Column="5" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase"/>
+        <Entry x:Name="Row0Entry1" Grid.Row="1" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+        <Entry x:Name="Row0Entry2" Grid.Row="1" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+        <Entry x:Name="Row0Entry3" Grid.Row="1" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+        <Entry x:Name="Row0Entry4" Grid.Row="1" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+        <Entry x:Name="Row0Entry5" Grid.Row="1" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+        <Entry x:Name="Row0Entry6" Grid.Row="1" Grid.Column="5" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
         
 
         <Button Text="Enter" VerticalOptions="End" HorizontalOptions="Center" Grid.Row="7" Grid.ColumnSpan="6"/>
