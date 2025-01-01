@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\35387\source\repos\WordleProject\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-01-01T11:58:10.126</Modified>
+      <Modified>2025-01-01T13:03:56.940</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\35387\source\repos\WordleProject\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WordleProject.dll">
       <PackagePath>WordleProject.dll</PackagePath>
-      <Modified>2025-01-01T11:58:09.614</Modified>
+      <Modified>2025-01-01T13:03:56.247</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\35387\source\repos\WordleProject\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>WordleProject.exe</PackagePath>
-      <Modified>2025-01-01T11:58:09.630</Modified>
+      <Modified>2025-01-01T13:03:56.305</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\35387\source\repos\WordleProject\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
