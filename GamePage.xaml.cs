@@ -2,9 +2,10 @@ namespace WordleProject;
 
 public partial class GamePage : ContentPage
 {
-	public GamePage()
+	public GamePage(string randomWord)
 	{
 		InitializeComponent();
+       string gameRandomWord = randomWord;
 	}
 
     private void OnTextChangedRow0(object sender, TextChangedEventArgs e)
