@@ -2,11 +2,26 @@ namespace WordleProject;
 
 public partial class GamePage : ContentPage
 {
-	public GamePage(string randomWord)
+    string gameRandomWord;
+    HashSet<string> validWordSet;
+
+    public GamePage(string randomWord)
 	{
 		InitializeComponent();
-       string gameRandomWord = randomWord;
+        gameRandomWord = randomWord.ToUpper();
+        LoadWordAsync();
+        
 	}
+
+    private async Task LoadWordAsync()
+    {
+        var fileDownloader = new FileDownloader();
+        var validWordArray = await fileDownloader.GetWordsAsync();
+
+        // Initialize HashSet for efficient lookups
+        validWordSet = new HashSet<string>(validWordArray.Select(word => word.ToUpper()));
+
+    }
 
     private void OnTextChangedRow0(object sender, TextChangedEventArgs e)
     {
@@ -24,8 +39,36 @@ public partial class GamePage : ContentPage
                 Row0Entry4.Focus();
             else if (currentEntry == Row0Entry4)
                 Row0Entry5.Focus();
-            else if (currentEntry == Row0Entry5)
-                Row0Entry6.Focus();
+        }
+    }
+
+    private async void EnterButton_Clicked(object sender, EventArgs e)
+    {
+        
+        string enteredWord = $"{Row0Entry1.Text}{Row0Entry2.Text}{Row0Entry3.Text}{Row0Entry4.Text}{Row0Entry5.Text}".ToUpper();
+
+        //Checking if user entered 5 letters
+        if(enteredWord.Length != 5 || enteredWord.Any(char.IsWhiteSpace))
+        {
+            await DisplayAlert("Error", "Please enter 5 letters.", "Ok");
+            return;
+        }
+
+        if (!validWordSet.Contains(enteredWord))
+        {
+            await DisplayAlert("Error", "That is not a word from the list", "Ok");
+            return;
+        }
+
+
+
+        if (enteredWord.ToUpper() == gameRandomWord.ToUpper())
+        {
+            await DisplayAlert("Congrats", "You guessed the word", "Ok");
+        }
+        else
+        {
+            DisplayAlert("oops", "try again", "ok");
         }
     }
 }
