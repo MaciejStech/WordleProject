@@ -43,6 +43,18 @@ namespace WordleProject
         {
             await Navigation.PushAsync(new SettingPage());
         }
+
+        private async void History_Clicked(object sender, EventArgs e)
+        {
+            if(AppSettings.Log == 1)
+            {
+                await Navigation.PushAsync(new HistoryPage());
+            }
+            else
+            {
+                await DisplayAlert("Error", "To view Player History, please log in / sign up!", "Ok");
+            }
+        }
     }
 }
 

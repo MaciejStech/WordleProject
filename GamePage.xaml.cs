@@ -13,15 +13,16 @@ public partial class GamePage : ContentPage
     private IDispatcherTimer gameTimer;
     int guessCounter = 1;
     int loginInfo = 0;
+
     public GamePage(string randomWord)
-	{ 
+    {
         InitializeComponent();
         InitializeRow();
         gameRandomWord = randomWord.ToUpper();
         LoadWordAsync();
         timerToggleGame = AppSettings.Toggle;
         loginInfo = AppSettings.Log;
-        if(timerToggleGame == 1)
+        if (timerToggleGame == 1)
         {
             TimerLabel.IsVisible = true;
             StartTimer();
@@ -30,9 +31,9 @@ public partial class GamePage : ContentPage
         {
             TimerLabel.IsVisible = false;
         }
-        
-        
-	}
+
+
+    }
 
     private void InitializeRow()
     {
@@ -190,22 +191,21 @@ public partial class GamePage : ContentPage
 
         if (enteredWord.ToUpper() == gameRandomWord.ToUpper())
         {
-            if(timerToggleGame == 1 && loginInfo == 1)
+            if (timerToggleGame == 1 && loginInfo == 1)
             {
                 gameTimer.Stop();
                 string timeTaken = $"{elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}", "Ok");
-                string infoTimer = $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}";
+                string infoTimer = $"\nWord: {gameRandomWord}     Time: {timeTaken}       Guesses: {guessCounter}";
                 File.AppendAllText(AppSettings.UserSave, infoTimer);
             }
-            else if(timerToggleGame == 0 && loginInfo == 1)
+            else if (timerToggleGame == 0 && loginInfo == 1)
             {
-                gameTimer.Stop();
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
-                string infoTimer = $"Word: {gameRandomWord}\nTime: N/A \nGuesses: {guessCounter}";
+                string infoTimer = $"\nWord: {gameRandomWord}     Time: N/A       Guesses: {guessCounter}";
                 File.AppendAllText(AppSettings.UserSave, infoTimer);
             }
-            else if(timerToggleGame == 1 && loginInfo == 0)
+            else if (timerToggleGame == 1 && loginInfo == 0)
             {
                 gameTimer.Stop();
                 string timeTaken = $"{elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
@@ -213,13 +213,13 @@ public partial class GamePage : ContentPage
             }
             else
             {
-                gameTimer.Stop();
+
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
             }
 
-                Navigation.PopAsync();
+            Navigation.PopAsync();
         }
-        else if(validWordSet.Contains(enteredWord) && enteredWord.ToUpper() != gameRandomWord.ToUpper())
+        else if (validWordSet.Contains(enteredWord) && enteredWord.ToUpper() != gameRandomWord.ToUpper())
         {
             DisplayAlert("oops", "try again", "ok");
             guessCounter++;
@@ -231,16 +231,19 @@ public partial class GamePage : ContentPage
             await Navigation.PopToRootAsync();
             return;
         }
+        
 
         // Move to the next row
-        SetRowEnabled(currentRow, false); 
+        SetRowEnabled(currentRow, false);
         currentRow++;
-        SetRowEnabled(currentRow, true); 
+        SetRowEnabled(currentRow, true);
+
+     
     }
 
     private string GetWordFromCurrentRow()
     {
-       
+
         return currentRow switch
         {
             0 => $"{Row0Entry1.Text}{Row0Entry2.Text}{Row0Entry3.Text}{Row0Entry4.Text}{Row0Entry5.Text}".ToUpper(),
@@ -264,4 +267,20 @@ public partial class GamePage : ContentPage
         };
         gameTimer.Start();
     }
+
+    private async void FlipEntryBox(Entry entry)
+    {
+        // Rotate the Entry 90 degrees around the X-axis
+        await entry.RotateXTo(90, 250); // Half-flip (hide the front face)
+
+        // Optionally, change some property like Text or BackgroundColor while it's "flipping"
+        //entry.Text = ""; // Example: Reset text during the flip
+        //entry.BackgroundColor = Colors.LightGreen;
+
+        // Complete the flip back to 0 degrees (original state)
+        await entry.RotateXTo(0, 250); // Finish the flip
+    }
+
+ 
 }
+
