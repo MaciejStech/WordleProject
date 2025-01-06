@@ -8,7 +8,7 @@ public partial class GamePage : ContentPage
     int timerToggleGame;
     private int elapsedSeconds = 0;
     private IDispatcherTimer gameTimer;
-
+    int guessCounter = 1;
     public GamePage(string randomWord)
 	{ 
         InitializeComponent();
@@ -185,11 +185,25 @@ public partial class GamePage : ContentPage
 
         if (enteredWord.ToUpper() == gameRandomWord.ToUpper())
         {
-            await DisplayAlert("Congrats", "You guessed the word", "Ok");
+            if(timerToggleGame == 1)
+            {
+                gameTimer.Stop();
+                string timeTaken = $"{elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
+                await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}", "Ok");
+                string infoTimer = $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}";
+            }
+            else
+            {
+                await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
+                string infoTimer = $"Word: {gameRandomWord}\nTime: N/A \nGuesses: {guessCounter}";
+            }
+            
+            Navigation.PopAsync();
         }
         else if(validWordSet.Contains(enteredWord) && enteredWord.ToUpper() != gameRandomWord.ToUpper())
         {
             DisplayAlert("oops", "try again", "ok");
+            guessCounter++;
         }
 
         if (currentRow == 5) // Last row
