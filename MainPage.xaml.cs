@@ -32,7 +32,11 @@ namespace WordleProject
                 await DisplayAlert("Error", $"Unable to fetch a word: {ex.Message}", "Ok");
             }            
         }
-        
+
+        private async void LogIn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LogIn());
+        }
     }
 }
 
