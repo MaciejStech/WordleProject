@@ -1,3 +1,6 @@
+using Microsoft.Maui.Storage;
+using System.IO;
+
 namespace WordleProject;
 
 public partial class GamePage : ContentPage
@@ -9,6 +12,7 @@ public partial class GamePage : ContentPage
     private int elapsedSeconds = 0;
     private IDispatcherTimer gameTimer;
     int guessCounter = 1;
+    int loginInfo = 0;
     public GamePage(string randomWord)
 	{ 
         InitializeComponent();
@@ -16,6 +20,7 @@ public partial class GamePage : ContentPage
         gameRandomWord = randomWord.ToUpper();
         LoadWordAsync();
         timerToggleGame = AppSettings.Toggle;
+        loginInfo = AppSettings.Log;
         if(timerToggleGame == 1)
         {
             TimerLabel.IsVisible = true;
@@ -185,20 +190,34 @@ public partial class GamePage : ContentPage
 
         if (enteredWord.ToUpper() == gameRandomWord.ToUpper())
         {
-            if(timerToggleGame == 1)
+            if(timerToggleGame == 1 && loginInfo == 1)
             {
                 gameTimer.Stop();
                 string timeTaken = $"{elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}", "Ok");
                 string infoTimer = $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}";
+                File.AppendAllText(AppSettings.UserSave, infoTimer);
+            }
+            else if(timerToggleGame == 0 && loginInfo == 1)
+            {
+                gameTimer.Stop();
+                await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
+                string infoTimer = $"Word: {gameRandomWord}\nTime: N/A \nGuesses: {guessCounter}";
+                File.AppendAllText(AppSettings.UserSave, infoTimer);
+            }
+            else if(timerToggleGame == 1 && loginInfo == 0)
+            {
+                gameTimer.Stop();
+                string timeTaken = $"{elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
+                await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nTime: {timeTaken}\nGuesses: {guessCounter}", "Ok");
             }
             else
             {
+                gameTimer.Stop();
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
-                string infoTimer = $"Word: {gameRandomWord}\nTime: N/A \nGuesses: {guessCounter}";
             }
-            
-            Navigation.PopAsync();
+
+                Navigation.PopAsync();
         }
         else if(validWordSet.Contains(enteredWord) && enteredWord.ToUpper() != gameRandomWord.ToUpper())
         {

@@ -22,6 +22,8 @@ public partial class LogIn : ContentPage
         //File Path Line generated using ChatGPT
         string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), $"{username}.txt");
         DisplayAlert("Logged In", "You have successfully logged in.", "Ok");
+        AppSettings.Log = 1;
+        AppSettings.UserSave = filePath;
         Navigation.PopAsync();
         
     }
