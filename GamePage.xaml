@@ -4,73 +4,73 @@
              x:Class="WordleProject.GamePage"
              Title="GamePage">
     <ScrollView>
-    <Grid RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
+        <Grid RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Title -->
-        <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center"/>
-        <Label x:Name="TimerLabel" Text="Time: 0:00" FontSize="24" HorizontalOptions="Center" IsVisible="False"/>
+            <!-- Title -->
+            <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="TimerLabel" Text="Time: 0:00" FontSize="24" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.ColumnSpan="6" IsVisible="False" Margin="10"/>
 
-        <!-- Guess 1 -->
-        <Entry x:Name="Row0Entry1" BackgroundColor="DimGrey"  Grid.Row="1" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75"  HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row0Entry2" Grid.Row="1" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row0Entry3" Grid.Row="1" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row0Entry4" Grid.Row="1" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row0Entry5" Grid.Row="1" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <!-- Guess 1 -->
+            <Entry x:Name="Row0Entry1" Grid.Row="1" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75"  HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row0Entry2" Grid.Row="1" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row0Entry3" Grid.Row="1" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row0Entry4" Grid.Row="1" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row0Entry5" Grid.Row="1" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
 
-        <!-- Guess 2 -->
-        <Entry x:Name="Row1Entry1" Grid.Row="2" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row1Entry2" Grid.Row="2" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row1Entry3" Grid.Row="2" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row1Entry4" Grid.Row="2" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row1Entry5" Grid.Row="2" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <!-- Guess 2 -->
+            <Entry x:Name="Row1Entry1" Grid.Row="2" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row1Entry2" Grid.Row="2" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row1Entry3" Grid.Row="2" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row1Entry4" Grid.Row="2" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row1Entry5" Grid.Row="2" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
 
-        <!--Guess 3 -->
-        <Entry x:Name="Row2Entry1" Grid.Row="3" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row2Entry2" Grid.Row="3" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row2Entry3" Grid.Row="3" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row2Entry4" Grid.Row="3" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row2Entry5" Grid.Row="3" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <!--Guess 3 -->
+            <Entry x:Name="Row2Entry1" Grid.Row="3" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row2Entry2" Grid.Row="3" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row2Entry3" Grid.Row="3" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row2Entry4" Grid.Row="3" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row2Entry5" Grid.Row="3" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
 
-        <!-- Guess 4-->
-        <Entry x:Name="Row3Entry1" Grid.Row="4" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row3Entry2" Grid.Row="4" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row3Entry3" Grid.Row="4" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row3Entry4" Grid.Row="4" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row3Entry5" Grid.Row="4" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <!-- Guess 4-->
+            <Entry x:Name="Row3Entry1" Grid.Row="4" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row3Entry2" Grid.Row="4" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row3Entry3" Grid.Row="4" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row3Entry4" Grid.Row="4" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row3Entry5" Grid.Row="4" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
 
-        <!-- Guess 5-->
-        <Entry x:Name="Row4Entry1" Grid.Row="5" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row4Entry2" Grid.Row="5" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row4Entry3" Grid.Row="5" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row4Entry4" Grid.Row="5" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row4Entry5" Grid.Row="5" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <!-- Guess 5-->
+            <Entry x:Name="Row4Entry1" Grid.Row="5" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row4Entry2" Grid.Row="5" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row4Entry3" Grid.Row="5" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row4Entry4" Grid.Row="5" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row4Entry5" Grid.Row="5" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
 
-        <!-- Guess 6 -->
-        <Entry x:Name="Row5Entry1" Grid.Row="6" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row5Entry2" Grid.Row="6" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row5Entry3" Grid.Row="6" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row5Entry4" Grid.Row="6" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Entry x:Name="Row5Entry5" Grid.Row="6" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
-        <Button Text="Enter" x:Name="EnterButton" Clicked="EnterButton_Clicked" VerticalOptions="End" HorizontalOptions="Center" Grid.Row="7" Grid.ColumnSpan="6"/>
+            <!-- Guess 6 -->
+            <Entry x:Name="Row5Entry1" Grid.Row="6" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row5Entry2" Grid.Row="6" Grid.Column="1" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row5Entry3" Grid.Row="6" Grid.Column="2" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row5Entry4" Grid.Row="6" Grid.Column="3" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Entry x:Name="Row5Entry5" Grid.Row="6" Grid.Column="4" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
+            <Button Text="Enter" x:Name="EnterButton" Clicked="EnterButton_Clicked" VerticalOptions="End" HorizontalOptions="Center" Grid.Row="7" Grid.ColumnSpan="6"/>
 
-    </Grid>
+        </Grid>
     </ScrollView>
 </ContentPage>

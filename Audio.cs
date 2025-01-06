@@ -12,8 +12,14 @@ public static class Audio
     {
         var audioManager = AudioManager.Current;
         audioplayer = audioManager.CreatePlayer(FileSystem.OpenAppPackageFileAsync("night-imaginations-249599.mp3").Result);
+        RestartMusic();
     }
 
+    private static async void RestartMusic()
+    {
+        await Task.Delay(20000);
+        InitializeAudio();
+    }
     public static void PlayMusic()
     {
         if (audioplayer == null)
@@ -23,8 +29,8 @@ public static class Audio
 
         if (PlayingAudio != true)
         {
-            audioplayer.Play();
-            PlayingAudio = true;
+                 audioplayer.Play();
+                PlayingAudio = true;
         }
     }
 
