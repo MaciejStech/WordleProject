@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordleProject.GamePage"
-             Title="GamePage">
+             Title=" ">
     <ScrollView>
         <Grid RowSpacing="10" ColumnSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">
             <Grid.RowDefinitions>
@@ -16,16 +16,16 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Title -->
-            <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
             <Label x:Name="TimerLabel" Text="Time: 0:00" FontSize="24" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.ColumnSpan="6" IsVisible="False" Margin="10"/>
 
             <!-- Guess 1 -->

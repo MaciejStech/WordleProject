@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordleProject.LogIn"
-             Title="LogIn">
-    
+             Title=" ">
+
     <VerticalStackLayout>
+        <!-- Title for the page -->
         <Label x:Name="TitleLogIn" Text="Sign Up" TextColor="White" HorizontalOptions="Center" FontSize="24" Margin="10"/>
-        <HorizontalStackLayout>
-            <Entry HorizontalOptions="Center" x:Name="Username" Placeholder="Username" PlaceholderColor="LightGrey" TextColor="Black" WidthRequest="300" HeightRequest="30" />
+
+        <!-- Username box and Go button -->
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Entry HorizontalOptions="Center" x:Name="Username" Placeholder="Username" PlaceholderColor="LightGrey" TextColor="White" WidthRequest="300" HeightRequest="30" />
             <Button HorizontalOptions="Center" x:Name="UsernameGo" Clicked="UsernameGo_Clicked" Text="->" WidthRequest="30" HeightRequest="30" Margin="5"/>
         </HorizontalStackLayout>
-        <Label Text="Already have an account? Log in!" TextColor="LightBlue" TextDecorations="Underline" FontSize="10" HorizontalOptions="Center" Margin="10">
+
+        <!-- "Already have an account?" label -->
+        <Label x:Name="MemberPrompt" Text="Already have an account? Log in!" TextColor="LightBlue" TextDecorations="Underline" FontSize="10" HorizontalOptions="Center" Margin="10" IsVisible="True">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
             </Label.GestureRecognizers>
         </Label>
+        <Button x:Name="Return" Clicked="Return_Clicked" WidthRequest="150" HeightRequest="50" Text="Back"/>
 
     </VerticalStackLayout>
 </ContentPage>

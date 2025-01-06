@@ -4,9 +4,7 @@
              x:Class="WordleProject.MainPage">
 
     <ScrollView>
-        
-            <!-- <Button x:Name="Play" Text="Play" Clicked="Play_Clicked" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="DarkSlateGrey" TextColor="White"/> -->
-            <Grid>
+        <Grid>
                 <!-- Define the layout structure -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -17,15 +15,16 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
+            
+            
                 <!-- Top-right buttons -->
             <Button x:Name="Settings" Text="Settings" Clicked="Settings_Clicked"  Grid.Row="0" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="End" Margin="10"/>
             <Button x:Name="LogIn" Text="Log in" Clicked="LogIn_Clicked" Grid.Row="1" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start" Margin="10"/>
-
-
-            <!-- Center buttons -->
-            <Button Text="Play" Clicked="Play_Clicked" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Button x:Name="History" Text="History" Clicked="History_Clicked" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Start"/>
+            <Label Text="WORDLE" FontSize="48" TextColor="White" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" Padding="5"/>
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="15">
+                <Button x:Name="Play" Text="Play" Clicked="Play_Clicked" HorizontalOptions="Center" />
+                <Button x:Name="History" Text="History" Clicked="History_Clicked" HorizontalOptions="Center" />
+            </StackLayout>
         </Grid>
 
         

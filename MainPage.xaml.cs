@@ -23,9 +23,6 @@ namespace WordleProject
                 // Get a random word after ensuring the file is downloaded
                 string randomWord = await _fileDownloader.GetRandomWordAsync();
 
-                // Display the random word
-                DisplayAlert("Random Word : ", randomWord, "Ok");
-
                 await Navigation.PushAsync(new GamePage(randomWord));
             }
             catch (Exception ex)

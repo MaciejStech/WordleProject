@@ -13,6 +13,7 @@ public partial class LogIn : ContentPage
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
 		TitleLogIn.Text = "Log In";
+        MemberPrompt.IsVisible = false;
     }
 
     private void UsernameGo_Clicked(object sender, EventArgs e)
@@ -26,5 +27,10 @@ public partial class LogIn : ContentPage
         AppSettings.UserSave = filePath;
         Navigation.PopAsync();
         
+    }
+
+    private void Return_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PopAsync();
     }
 }

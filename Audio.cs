@@ -17,8 +17,8 @@ public static class Audio
 
     private static async void RestartMusic()
     {
-        await Task.Delay(20000);
-        InitializeAudio();
+        await Task.Delay(200000);
+        PlayMusic();
     }
     public static void PlayMusic()
     {

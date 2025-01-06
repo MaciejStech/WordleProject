@@ -2,14 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordleProject.SettingPage"
-             Title="SettingPage"
-              BackgroundColor="{Binding BackgroundColor}">
+             Title=" ">
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <Label Text="Music" TextColor="White" FontSize="20"/>
-            <Button x:Name="MusicOnOff" Clicked="MusicOnOff_Clicked"/>
+            <Label Text="Music" TextColor="White" FontSize="20" Padding="10"/>
+            <Button x:Name="MusicOnOff" Clicked="MusicOnOff_Clicked" BackgroundColor="Green" BorderColor="Orange" BorderWidth="2"/>
         </HorizontalStackLayout>
-        <Button Text="Toggle Timer" x:Name="TimerToggle" Clicked="TimerToggle_Clicked"/>
-        <Button x:Name="Return" Clicked="Return_Clicked" Text="Exit"/>
+        <HorizontalStackLayout>
+            <Label Text="Toggle Timer" TextColor="White" FontSize="20" Padding="10"/>
+            <Button x:Name="TimerToggle" Clicked="TimerToggle_Clicked" WidthRequest="50" HeightRequest="50" BackgroundColor="Red" BorderColor="Orange" BorderWidth="2"/>
+        </HorizontalStackLayout>
+        
+        <Button x:Name="Return" Clicked="Return_Clicked" Text="Exit" WidthRequest="150" HeightRequest="50"/>
     </VerticalStackLayout>
 </ContentPage>
