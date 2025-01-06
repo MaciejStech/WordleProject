@@ -171,10 +171,9 @@ public partial class GamePage : ContentPage
 
     private async void EnterButton_Clicked(object sender, EventArgs e)
     {
-
         string enteredWord = GetWordFromCurrentRow();
 
-        //Checking if user entered 5 letters
+        // Checking if user entered 5 letters
         if (enteredWord.Length != 5 || enteredWord.Any(char.IsWhiteSpace))
         {
             await DisplayAlert("Error", "Please enter 5 letters.", "Ok");
@@ -187,10 +186,36 @@ public partial class GamePage : ContentPage
             return;
         }
 
+        // Track if the word is correct
+        bool isCorrectWord = enteredWord.ToUpper() == gameRandomWord.ToUpper();
 
-
-        if (enteredWord.ToUpper() == gameRandomWord.ToUpper())
+        // Check each letter and update the color
+        for (int i = 0; i < 5; i++)
         {
+            Entry currentEntry = GetEntryForRow(currentRow, i);
+
+            await FlipEntryBox(currentEntry);
+
+            if (enteredWord[i] == gameRandomWord[i])
+            {
+                // Correct letter, correct position -> Green
+                currentEntry.BackgroundColor = Color.FromArgb("#00FF00");
+            }
+            else if (gameRandomWord.Contains(enteredWord[i]))
+            {
+                // Correct letter, wrong position -> Yellow
+                currentEntry.BackgroundColor = Color.FromArgb("#FFFF00");
+            }
+            else
+            {
+                // Incorrect letter -> Gray
+                currentEntry.BackgroundColor = Color.FromArgb("#808080");
+            }
+        }
+
+        if (isCorrectWord)
+        {
+            // If the word is correct, stop the timer and show a success message
             if (timerToggleGame == 1 && loginInfo == 1)
             {
                 gameTimer.Stop();
@@ -213,7 +238,6 @@ public partial class GamePage : ContentPage
             }
             else
             {
-
                 await DisplayAlert("Game Complete!", $"Word: {gameRandomWord}\nGuesses: {guessCounter}", "Ok");
             }
 
@@ -221,26 +245,91 @@ public partial class GamePage : ContentPage
         }
         else if (validWordSet.Contains(enteredWord) && enteredWord.ToUpper() != gameRandomWord.ToUpper())
         {
-            DisplayAlert("oops", "try again", "ok");
             guessCounter++;
         }
 
         if (currentRow == 5) // Last row
         {
-            await DisplayAlert("Good game", "You've run out of guesses. Better luck next time!", "Ok");
+            await DisplayAlert("Good game", $"The Word was : {gameRandomWord}", "Ok");
             await Navigation.PopToRootAsync();
             return;
         }
-        
 
+        
         // Move to the next row
         SetRowEnabled(currentRow, false);
         currentRow++;
         SetRowEnabled(currentRow, true);
-
-     
     }
 
+    private Entry GetEntryForRow(int row, int column)
+    {
+        switch (row)
+        {
+            case 0:
+                return column switch
+                {
+                    0 => Row0Entry1,
+                    1 => Row0Entry2,
+                    2 => Row0Entry3,
+                    3 => Row0Entry4,
+                    4 => Row0Entry5,
+                    _ => null
+                };
+            case 1:
+                return column switch
+                {
+                    0 => Row1Entry1,
+                    1 => Row1Entry2,
+                    2 => Row1Entry3,
+                    3 => Row1Entry4,
+                    4 => Row1Entry5,
+                    _ => null
+                };
+            case 2:
+                return column switch
+                {
+                    0 => Row2Entry1,
+                    1 => Row2Entry2,
+                    2 => Row2Entry3,
+                    3 => Row2Entry4,
+                    4 => Row2Entry5,
+                    _ => null
+                };
+            case 3:
+                return column switch
+                {
+                    0 => Row3Entry1,
+                    1 => Row3Entry2,
+                    2 => Row3Entry3,
+                    3 => Row3Entry4,
+                    4 => Row3Entry5,
+                    _ => null
+                };
+            case 4:
+                return column switch
+                {
+                    0 => Row4Entry1,
+                    1 => Row4Entry2,
+                    2 => Row4Entry3,
+                    3 => Row4Entry4,
+                    4 => Row4Entry5,
+                    _ => null
+                };
+            case 5:
+                return column switch
+                {
+                    0 => Row5Entry1,
+                    1 => Row5Entry2,
+                    2 => Row5Entry3,
+                    3 => Row5Entry4,
+                    4 => Row5Entry5,
+                    _ => null
+                };
+            default:
+                return null;
+        }
+    }
     private string GetWordFromCurrentRow()
     {
 
@@ -255,6 +344,37 @@ public partial class GamePage : ContentPage
             _ => string.Empty
         };
     }
+    private async Task FlipPreviousRow()
+    {
+        int previousRow = currentRow;
+
+        // Get all the entries in the previous row based on previousRow index
+        Entry[] previousRowEntries = previousRow switch
+        {
+            0 => new[] { Row0Entry1, Row0Entry2, Row0Entry3, Row0Entry4, Row0Entry5 },
+            1 => new[] { Row1Entry1, Row1Entry2, Row1Entry3, Row1Entry4, Row1Entry5 },
+            2 => new[] { Row2Entry1, Row2Entry2, Row2Entry3, Row2Entry4, Row2Entry5 },
+            3 => new[] { Row3Entry1, Row3Entry2, Row3Entry3, Row3Entry4, Row3Entry5 },
+            4 => new[] { Row4Entry1, Row4Entry2, Row4Entry3, Row4Entry4, Row4Entry5 },
+            5 => new[] { Row5Entry1, Row5Entry2, Row5Entry3, Row5Entry4, Row5Entry5 },
+            _ => new Entry[] { }
+        };
+
+        // Flip each entry in the previous row
+        foreach (var entry in previousRowEntries)
+        {
+            await FlipEntryBox(entry);
+        }
+    }
+
+    private async Task FlipEntryBox(Entry entry)
+    {
+        // Rotate the Entry 90 degrees around the X-axis
+        await entry.RotateXTo(90, 250); // Half-flip (hide the front face)
+
+        // Complete the flip back to 0 degrees (original state)
+        await entry.RotateXTo(0, 250); // Finish the flip
+    }
 
     private void StartTimer()
     {
@@ -267,20 +387,5 @@ public partial class GamePage : ContentPage
         };
         gameTimer.Start();
     }
-
-    private async void FlipEntryBox(Entry entry)
-    {
-        // Rotate the Entry 90 degrees around the X-axis
-        await entry.RotateXTo(90, 250); // Half-flip (hide the front face)
-
-        // Optionally, change some property like Text or BackgroundColor while it's "flipping"
-        //entry.Text = ""; // Example: Reset text during the flip
-        //entry.BackgroundColor = Colors.LightGreen;
-
-        // Complete the flip back to 0 degrees (original state)
-        await entry.RotateXTo(0, 250); // Finish the flip
-    }
-
- 
 }
 
