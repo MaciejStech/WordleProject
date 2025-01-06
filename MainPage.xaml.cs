@@ -9,6 +9,7 @@ namespace WordleProject
     public partial class MainPage : ContentPage
     {
         private readonly FileDownloader _fileDownloader;
+        
         public MainPage()
         {
             InitializeComponent();
@@ -36,6 +37,11 @@ namespace WordleProject
         private async void LogIn_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LogIn());
+        }
+
+        private async void Settings_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingPage());
         }
     }
 }

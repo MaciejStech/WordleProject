@@ -13,6 +13,9 @@
     <MauiXaml Update="LogIn.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="SettingPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
   <ItemGroup>
     <None Update="App.xaml">

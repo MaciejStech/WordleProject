@@ -6,6 +6,8 @@
         {
             InitializeComponent();
 
+            Audio.InitializeAudio();
+            Audio.PlayMusic();
             MainPage = new AppShell();
         }
     }

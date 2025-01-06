@@ -178,3 +178,4 @@ C:\Users\35387\source\repos\WordleProject\obj\Debug\net8.0-windows10.0.19041.0\w
 C:\Users\35387\source\repos\WordleProject\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\35387\source\repos\WordleProject\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\35387\source\repos\WordleProject\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\35387\source\repos\WordleProject\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Plugin.Maui.Audio.dll

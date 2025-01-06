@@ -5,13 +5,27 @@ public partial class GamePage : ContentPage
     string gameRandomWord;
     HashSet<string> validWordSet;
     int currentRow = 0;
+    int timerToggleGame;
+    private int elapsedSeconds = 0;
+    private IDispatcherTimer gameTimer;
 
     public GamePage(string randomWord)
-	{
-		InitializeComponent();
+	{ 
+        InitializeComponent();
         InitializeRow();
         gameRandomWord = randomWord.ToUpper();
         LoadWordAsync();
+        timerToggleGame = AppSettings.Toggle;
+        if(timerToggleGame == 1)
+        {
+            TimerLabel.IsVisible = true;
+            StartTimer();
+        }
+        else
+        {
+            TimerLabel.IsVisible = false;
+        }
+        
         
 	}
 
@@ -23,6 +37,7 @@ public partial class GamePage : ContentPage
         }
 
         SetRowEnabled(0, true);
+        elapsedSeconds = 0;
     }
 
     private void SetRowEnabled(int rowCount, bool isEnabled)
@@ -203,5 +218,17 @@ public partial class GamePage : ContentPage
             5 => $"{Row5Entry1.Text}{Row5Entry2.Text}{Row5Entry3.Text}{Row5Entry4.Text}{Row5Entry5.Text}".ToUpper(),
             _ => string.Empty
         };
+    }
+
+    private void StartTimer()
+    {
+        gameTimer = Dispatcher.CreateTimer();
+        gameTimer.Interval = TimeSpan.FromSeconds(1);
+        gameTimer.Tick += (s, e) =>
+        {
+            elapsedSeconds++;
+            TimerLabel.Text = $"Time: {elapsedSeconds / 60}:{elapsedSeconds % 60:D2}";
+        };
+        gameTimer.Start();
     }
 }

@@ -19,7 +19,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- Top-right buttons -->
-            <Button Text="Settings" Grid.Row="0" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="End" Margin="10"/>
+            <Button x:Name="Settings" Text="Settings" Clicked="Settings_Clicked"  Grid.Row="0" Grid.Column="1" VerticalOptions="Start" HorizontalOptions="End" Margin="10"/>
             <Button x:Name="LogIn" Text="Log in" Clicked="LogIn_Clicked" Grid.Row="1" Grid.Column="2" HorizontalOptions="End" VerticalOptions="Start" Margin="10"/>
 
 

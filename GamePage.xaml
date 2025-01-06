@@ -26,6 +26,7 @@
         
         <!-- Title -->
         <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label x:Name="TimerLabel" Text="Time: 0:00" FontSize="24" HorizontalOptions="Center" IsVisible="False"/>
 
         <!-- Guess 1 -->
         <Entry x:Name="Row0Entry1" Grid.Row="1" Grid.Column="0" MaxLength="1" WidthRequest="75" HeightRequest="75" HorizontalTextAlignment="Center" FontSize="18" TextTransform="Uppercase" TextChanged="OnTextChangedRow0"/>
