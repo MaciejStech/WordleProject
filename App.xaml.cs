@@ -5,7 +5,7 @@
         public App()
         {
             InitializeComponent();
-
+            //Playing Music on Start
             Audio.InitializeAudio();
             Audio.PlayMusic();
 

@@ -12,6 +12,7 @@ public partial class HistoryPage : ContentPage
 		LoadData();
 	}
 
+	//Loads game data from the "username" .txt file and displays it
 	public async void LoadData()
 	{
 		if(File.Exists(filePathHistory))

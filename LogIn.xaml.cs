@@ -16,6 +16,7 @@ public partial class LogIn : ContentPage
         MemberPrompt.IsVisible = false;
     }
 
+    //Creates file and brings player to main menu once "logged in"
     private void UsernameGo_Clicked(object sender, EventArgs e)
     {
         string username = Username.Text;

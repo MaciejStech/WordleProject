@@ -17,7 +17,7 @@ namespace WordleProject
             filePath = Path.Combine(FileSystem.AppDataDirectory, fileName);
         }
 
-        // Check if the file already exists, otherwise download it
+        // Check if the file already exists and download it if not
         public async Task CheckFileExists()
         {
             if (!File.Exists(filePath))
@@ -42,7 +42,7 @@ namespace WordleProject
             }
             catch (Exception ex)
             {
-                // Handle any errors that occur during the download process
+                // Handle any errors that occur during the download process (try and catch method generated using chatGPT for error handling)
                 Console.WriteLine($"Error downloading file: {ex.Message}");
             }
         }
@@ -59,7 +59,7 @@ namespace WordleProject
         {
             var words = await GetWordsAsync();
             var random = new Random();
-            return words[random.Next(words.Length)].Trim(); // Select a random word
+            return words[random.Next(words.Length)].Trim();
         }
     }
 }

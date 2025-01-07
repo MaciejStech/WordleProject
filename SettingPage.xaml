@@ -4,9 +4,10 @@
              x:Class="WordleProject.SettingPage"
              Title=" ">
     <VerticalStackLayout>
+        <!-- Music Button and Timer Button Toggle-->
         <HorizontalStackLayout>
             <Label Text="Music" TextColor="White" FontSize="20" Padding="10"/>
-            <Button x:Name="MusicOnOff" Clicked="MusicOnOff_Clicked" BackgroundColor="Green" BorderColor="Orange" BorderWidth="2"/>
+            <Button x:Name="MusicOnOff" Clicked="MusicOnOff_Clicked" BackgroundColor="LawnGreen" BorderColor="Orange" BorderWidth="2"/>
         </HorizontalStackLayout>
         <HorizontalStackLayout>
             <Label Text="Toggle Timer" TextColor="White" FontSize="20" Padding="10"/>

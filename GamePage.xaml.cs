@@ -5,6 +5,7 @@ namespace WordleProject;
 
 public partial class GamePage : ContentPage
 {
+    //Variable declarations
     string gameRandomWord;
     HashSet<string> validWordSet;
     int currentRow = 0;
@@ -22,6 +23,8 @@ public partial class GamePage : ContentPage
         LoadWordAsync();
         timerToggleGame = AppSettings.Toggle;
         loginInfo = AppSettings.Log;
+        
+        //Make timer visible depending on setting
         if (timerToggleGame == 1)
         {
             TimerLabel.IsVisible = true;
@@ -46,6 +49,7 @@ public partial class GamePage : ContentPage
         elapsedSeconds = 0;
     }
 
+    //Enabling Row when it is in use
     private void SetRowEnabled(int rowCount, bool isEnabled)
     {
         switch (rowCount)
@@ -95,12 +99,13 @@ public partial class GamePage : ContentPage
         }
 
     }
+    //Loads the word into gamePage.cs
     private async Task LoadWordAsync()
     {
         var fileDownloader = new FileDownloader();
         var validWordArray = await fileDownloader.GetWordsAsync();
 
-        // Initialize HashSet for efficient lookups
+        // Initialize HashSet for efficient lookups (generated with the assistance of chatGPT)
         validWordSet = new HashSet<string>(validWordArray.Select(word => word.ToUpper()));
 
     }
@@ -169,6 +174,7 @@ public partial class GamePage : ContentPage
         }
     }
 
+    //Getting word and checking if it matches criteria
     private async void EnterButton_Clicked(object sender, EventArgs e)
     {
         string enteredWord = GetWordFromCurrentRow();
@@ -198,17 +204,17 @@ public partial class GamePage : ContentPage
 
             if (enteredWord[i] == gameRandomWord[i])
             {
-                // Correct letter, correct position -> Green
+                // Correct letter, correct position = Green
                 currentEntry.BackgroundColor = Color.FromArgb("#00FF00");
             }
             else if (gameRandomWord.Contains(enteredWord[i]))
             {
-                // Correct letter, wrong position -> Yellow
+                // Correct letter, wrong position = Yellow
                 currentEntry.BackgroundColor = Color.FromArgb("#FFFF00");
             }
             else
             {
-                // Incorrect letter -> Gray
+                // Incorrect letter = Gray
                 currentEntry.BackgroundColor = Color.FromArgb("#808080");
             }
         }
@@ -248,7 +254,8 @@ public partial class GamePage : ContentPage
             guessCounter++;
         }
 
-        if (currentRow == 5) // Last row
+        //Handling Last Row
+        if (currentRow == 5) 
         {
             await DisplayAlert("Good game", $"The Word was : {gameRandomWord}", "Ok");
             await Navigation.PopToRootAsync();
@@ -370,12 +377,13 @@ public partial class GamePage : ContentPage
     private async Task FlipEntryBox(Entry entry)
     {
         // Rotate the Entry 90 degrees around the X-axis
-        await entry.RotateXTo(90, 250); // Half-flip (hide the front face)
+        await entry.RotateXTo(90, 250);
 
         // Complete the flip back to 0 degrees (original state)
-        await entry.RotateXTo(0, 250); // Finish the flip
+        await entry.RotateXTo(0, 250);
     }
 
+    //Timer used from last project
     private void StartTimer()
     {
         gameTimer = Dispatcher.CreateTimer();

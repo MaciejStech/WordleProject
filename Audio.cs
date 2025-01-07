@@ -3,7 +3,7 @@ using System;
 
 namespace WordleProject;
 
-public static class Audio
+public static class Audio //Music player
 {
     private static IAudioPlayer audioplayer;
     private static bool PlayingAudio = false;
@@ -29,7 +29,7 @@ public static class Audio
 
         if (PlayingAudio != true)
         {
-                 audioplayer.Play();
+                audioplayer.Play();
                 PlayingAudio = true;
         }
     }

@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Title -->
+            <!-- Title + Timer -->
             <Label Text="WORDLE" Grid.Row="0" Grid.ColumnSpan="6" HorizontalOptions="Center" VerticalOptions="Center" FontSize="24"/>
             <Label x:Name="TimerLabel" Text="Time: 0:00" FontSize="24" HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="0" Grid.ColumnSpan="6" IsVisible="False" Margin="10"/>
 

@@ -8,6 +8,7 @@ public partial class SettingPage : ContentPage
 		InitializeComponent();
     }
 
+    //Handling Music being turned on/off and changing button colour
     private void MusicOnOff_Clicked(object sender, EventArgs e)
     {
         if(Audio.playingAudio)
@@ -34,7 +35,8 @@ public partial class SettingPage : ContentPage
     {
         Navigation.PopAsync();
     }
-
+    
+    //Handling Timer visibility and changing button colour
     private void TimerToggle_Clicked(object sender, EventArgs e)
     {
         int timerToggle = AppSettings.Toggle;
